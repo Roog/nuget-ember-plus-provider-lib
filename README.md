@@ -46,10 +46,10 @@ older version is marked in the header with 'XXX'.
 
 ```code
 NuGet Ember Provider Library
-Copyright (c) 2021 Roger Sandholm & Fredrik Bergholtz, Stockholm, Sweden
+Copyright (c) 2023 Roger Sandholm & Fredrik Bergholtz, Stockholm, Sweden
 The code is licensed under the BSD 3-clause license.
 ```
 
 ## Build
 
-![Workflow](workflows/ContinuousIntegration%20Release%20NuGet/badge.svg)
+![Workflow](../../../workflows/ContinuousIntegration%20Release%20NuGet/badge.svg)

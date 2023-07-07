@@ -2,7 +2,7 @@
 /*
  * NuGet EmBER+ Provider Lib
  *
- * Copyright (c) 2020 Roger Sandholm, Stockholm, Sweden
+ * Copyright (c) 2023 Roger Sandholm, Stockholm, Sweden
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions

@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
 
-    <PackageId>SR.EmberPlusProviderLib.NetStandard</PackageId>
+    <PackageId>EmberPlus.ProviderLib</PackageId>
     <Description>C# .NET Standard provider library for the EmBER+ protocol.</Description>
-    <Product>SR.EmberPlusProviderLib.NetStandard</Product>
+    <Product>EmberPlus.ProviderLib</Product>
     <Authors>Lawo, Roger Sandholm, Fredrik Bergholtz</Authors>
     <Company />
     <Version>0.0.1</Version>
@@ -17,11 +17,28 @@
     <Configurations>Debug;Release;PackNuGet</Configurations>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
 
-    <RepositoryUrl>https://github.com/sverigesradio/nuget-ember-plus-provider-lib</RepositoryUrl>
+    <RepositoryUrl>https://github.com/roog/nuget-ember-plus-provider-lib</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
 
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
     <NoWarn>CA2007;CA1307;CA1031;CS3021</NoWarn>
+
+    <PackageTags>emberplus;EmBER+;ember plus;ember;control;mixer;devices;provider</PackageTags>
+
+    <PackageIcon>nuget-icon.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\docs\nuget-icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\EmberLib.net\EmberLib.Glow\EmberLib.Glow.csproj">
@@ -34,14 +51,6 @@
       <Private>true</Private>
       <IncludeAssets>true</IncludeAssets>
     </ProjectReference>
-    <!--<Content Include="$(OutDir)\*.dll">
-      <PackagePath>lib\$(TargetFramework)</PackagePath>
-      <Pack>true</Pack>
-    </Content>
-    <Content Include="$(OutDir)\*.pdb">
-      <PackagePath>lib\$(TargetFramework)</PackagePath>
-      <Pack>true</Pack>
-    </Content>-->
   </ItemGroup>
 
   <Target Name="MyCustomizePacking" Returns="@(NuGetPackInput);@(_BuildOutputInPackage);@(_TargetPathsToSymbols)">

@@ -8,13 +8,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions: write-all
+
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
-        source-url: https://nuget.pkg.github.com/sverigesradio/index.json
+        source-url: https://nuget.pkg.github.com/roog/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
@@ -25,8 +29,11 @@ jobs:
     - name: Upload NuGet Package
       uses: actions/upload-artifact@v1
       with:
-        name: SR.EmberPlusProviderLib.NetStandard
-        path: ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/SR.EmberPlusProviderLib.NetStandard.${{ github.event.release.tag_name }}.nupkg
+        name: EmberPlus.ProviderLib
+        path: ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/EmberPlus.ProviderLib.${{ github.event.release.tag_name }}.nupkg
 
-    - name: Publish NuGet Package
-      run: dotnet nuget push ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/SR.EmberPlusProviderLib.NetStandard.${{ github.event.release.tag_name }}.nupkg --skip-duplicate --no-symbols true -k ${{secrets.GITHUB_TOKEN}} -s https://nuget.pkg.github.com/sverigesradio/index.json
+    - name: Publish NuGet Package [GitHub]
+      run: dotnet nuget push ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/EmberPlus.ProviderLib.${{ github.event.release.tag_name }}.nupkg --skip-duplicate --no-symbols true -k ${{secrets.GITHUB_TOKEN}} -s https://nuget.pkg.github.com/roog/index.json
+
+    - name: Publish Nuget Package [NuGet]
+      run: dotnet nuget push ./src/Nuget.EmberPlusConsumerLib.NetStandard/bin/PackNuGet/EmberPlus.ConsumerLib.${{ github.event.release.tag_name }}.nupkg --skip-duplicate --no-symbols true --api-key ${{ secrets.NUGETORG_API_KEY }} --source https://api.nuget.org/v3/index.json
