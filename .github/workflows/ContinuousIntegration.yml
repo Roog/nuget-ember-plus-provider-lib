@@ -33,7 +33,7 @@ jobs:
         path: ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/EmberPlus.ProviderLib.${{ github.event.release.tag_name }}.nupkg
 
     - name: Publish NuGet Package [GitHub]
-      run: dotnet nuget push ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/EmberPlus.ProviderLib.${{ github.event.release.tag_name }}.nupkg --skip-duplicate --no-symbols true -k ${{secrets.GITHUB_TOKEN}} -s https://nuget.pkg.github.com/roog/index.json
+      run: dotnet nuget push ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/EmberPlus.ProviderLib.${{ github.event.release.tag_name }}.nupkg --skip-duplicate --no-symbols -k ${{secrets.GITHUB_TOKEN}} -s https://nuget.pkg.github.com/roog/index.json
 
     - name: Publish Nuget Package [NuGet]
-      run: dotnet nuget push ./src/Nuget.EmberPlusConsumerLib.NetStandard/bin/PackNuGet/EmberPlus.ConsumerLib.${{ github.event.release.tag_name }}.nupkg --skip-duplicate --no-symbols true --api-key ${{ secrets.NUGETORG_API_KEY }} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./src/Nuget.EmberPlusConsumerLib.NetStandard/bin/PackNuGet/EmberPlus.ConsumerLib.${{ github.event.release.tag_name }}.nupkg --skip-duplicate --no-symbols --api-key ${{ secrets.NUGETORG_API_KEY }} --source https://api.nuget.org/v3/index.json
