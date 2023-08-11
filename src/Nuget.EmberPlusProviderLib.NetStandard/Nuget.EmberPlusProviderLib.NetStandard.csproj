@@ -27,6 +27,10 @@
     <PackageTags>emberplus;EmBER+;ember plus;ember;control;mixer;devices;provider</PackageTags>
 
     <PackageIcon>nuget-icon.png</PackageIcon>
+
+    <PackageLicenseExpression>BSL-1.0</PackageLicenseExpression>
+
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
