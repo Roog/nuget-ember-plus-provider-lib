@@ -5,10 +5,9 @@
    Distributed under the Boost Software License, Version 1.0.
    (See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 */
-// XXX: Changes has been made, I Added license header
-﻿using System;
+
+using System;
 using System.Collections.Generic;
-using System.Text;
 using BerLib;
 
 namespace EmberLib.Glow
@@ -86,7 +85,7 @@ namespace EmberLib.Glow
       }
 
       /// <summary>
-      /// Gets or sets an typed enumeration over the tuple values contained in 
+      /// Gets or sets an typed enumeration over the tuple values contained in
       /// in the "arguments" field.
       /// Getter returns null if field "arguments" not present.
       /// </summary>
