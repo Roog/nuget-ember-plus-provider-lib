@@ -88,7 +88,7 @@ namespace EmberPlusProviderClassLib.EmberHelpers
         //public static void AddEnumParameter(this Node node, int index, string identifier, EmberPlusProvider provider, bool isWritable = false, Type enumType = null, int value = 0, string description = "", bool isPersistable = false)
         //{
         //    NodeAsserter.AssertIdentifierValid(identifier);
-        //    if(enumType != null)
+        //    if (enumType != null)
         //    {
         //        new EnumParameter(index, node, identifier, provider.dispatcher, 0, Enum.GetValues(enumType).Length, isWritable, isPersistable) { Value = value, Description = description };
         //    }
@@ -112,7 +112,6 @@ namespace EmberPlusProviderClassLib.EmberHelpers
 
         public static OneToNMatrix AddMatrixOneToN(this Node node, int index, string identifier, string[] sourceNames, string[] targetNames, EmberPlusProvider provider, bool isWritable = true, string description = "", string matrixIdentifier = "matrix")
         {
-            
             var oneToN = new Node(index, node, identifier )
             {
                 Description = description,
@@ -173,7 +172,6 @@ namespace EmberPlusProviderClassLib.EmberHelpers
 
         public static OneToNBlindSourceMatrix AddMatrixOneToNBlindSource(this Node node, int index, string identifier, string[] sourceNames, string[] targetNames, string blindSourceName, EmberPlusProvider provider, bool isWritable = true, string description = "", string matrixIdentifier = "matrix")
         {
-
             var oneToN = new Node(index, node, identifier)
             {
                 Description = description,

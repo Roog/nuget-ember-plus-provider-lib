@@ -55,11 +55,11 @@ namespace EmberPlusProviderClassLib.Model
 
             var firstSource = sources.FirstOrDefault();
 
-            if(firstSource != null)
+            if (firstSource != null)
             {
-                foreach(var signal in Targets)
+                foreach (var signal in Targets)
                 {
-                    if(signal.ConnectedSources.Contains(firstSource))
+                    if (signal.ConnectedSources.Contains(firstSource))
                     {
                         signal.Connect(Enumerable.Empty<Signal>(), true);
 

@@ -96,7 +96,7 @@ namespace EmberPlusProviderClassLib.Model
 
         public bool Connect(Signal target, IEnumerable<Signal> sources, object state, ConnectOperation operation = ConnectOperation.Absolute)
         {
-            if(_targets.Contains(target) == false)
+            if (_targets.Contains(target) == false)
                 throw new ArgumentException("target");
 
             var firstSource = sources.FirstOrDefault();

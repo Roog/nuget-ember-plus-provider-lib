@@ -37,7 +37,7 @@ namespace EmberPlusProviderClassLib.Model
     /// <summary>
     /// The One To N Blind Source Matrix implements a blind source. The blind source is being used as
     /// a default source to be connected to a target. The blind source is connected when any other source
-    /// is disconnected from the target. 
+    /// is disconnected from the target.
     /// </summary>
     public class OneToNBlindSourceMatrix : Matrix
     {
@@ -86,9 +86,8 @@ namespace EmberPlusProviderClassLib.Model
                         target.Connect(onSource, true);
                     }
                     break;
-  
-                case ConnectOperation.Connect:
 
+                case ConnectOperation.Connect:
                     // Connect to the first source that is not blind
                     target.Connect(sources.Take(1), true);
                     break;

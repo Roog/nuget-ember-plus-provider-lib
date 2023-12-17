@@ -62,7 +62,7 @@ namespace EmberPlusProviderClassLib.Model
 
         protected override bool ConnectOverride(Signal target, IEnumerable<Signal> sources, ConnectOperation operation)
         {
-            if(operation == ConnectOperation.Disconnect)
+            if (operation == ConnectOperation.Disconnect)
                 target.Disconnect(sources);
             else
                 target.Connect(sources, operation == ConnectOperation.Absolute);
@@ -83,23 +83,23 @@ namespace EmberPlusProviderClassLib.Model
         {
             var offset = Path.Length;
 
-            if(path.Length == offset + 5
+            if (path.Length == offset + 5
             && path[offset + 0] == ParametersSubIdentifier
             && path[offset + 1] == 3) // connections
             {
                 Dictionary<int, XpointParams> dict;
 
-                if(_xpointParameters.TryGetValue(path[offset + 2], out dict)) // target
+                if (_xpointParameters.TryGetValue(path[offset + 2], out dict)) // target
                 {
                     XpointParams xpointParams;
 
-                    if(dict.TryGetValue(path[offset + 3], out xpointParams)) // source
+                    if (dict.TryGetValue(path[offset + 3], out xpointParams)) // source
                     {
-                        if(path[offset + 4] == 1) // gain
+                        if (path[offset + 4] == 1) // gain
                         {
                             var value = parameter.Value;
 
-                            if(value != null
+                            if (value != null
                             && value.Type == GlowParameterType.Real)
                             {
                                 xpointParams.Gain = value.Real;
@@ -114,21 +114,21 @@ namespace EmberPlusProviderClassLib.Model
 
         void IDynamicPathHandler.HandleCommand(GlowCommand command, int[] path, Client source)
         {
-            if(command.Number == GlowCommandType.GetDirectory)
+            if (command.Number == GlowCommandType.GetDirectory)
             {
                 var offset = Path.Length;
 
-                if(path.Length == offset + 4
+                if (path.Length == offset + 4
                 && path[offset + 0] == ParametersSubIdentifier
                 && path[offset + 1] == 3) // connections
                 {
                     Dictionary<int, XpointParams> dict;
 
-                    if(_xpointParameters.TryGetValue(path[offset + 2], out dict)) // target
+                    if (_xpointParameters.TryGetValue(path[offset + 2], out dict)) // target
                     {
                         XpointParams xpointParams;
 
-                        if(dict.TryGetValue(path[offset + 3], out xpointParams)) // source
+                        if (dict.TryGetValue(path[offset + 3], out xpointParams)) // source
                         {
                             var gainPath = path.Concat(new[] { 1 }).ToArray();
 

@@ -67,7 +67,7 @@ namespace EmberPlusProviderClassLib.Model
             {
                 lock(_sync)
                 {
-                    if(_identifierPath == null)
+                    if (_identifierPath == null)
                     {
                         var list = new LinkedList<string>();
                         list.AddFirst(Identifier);
@@ -135,7 +135,7 @@ namespace EmberPlusProviderClassLib.Model
                         where elem.Number == number
                         select elem)
                     .FirstOrDefault();
-                
+
                 if (child == null)
                 {
                     if (element is IDynamicPathHandler)

@@ -94,9 +94,9 @@ namespace EmberPlusProviderClassLib
         {
             lock(_sync)
             {
-                if(subscribe)
+                if (subscribe)
                 {
-                    if(_subscribedMatrices.Contains(matrix) == false)
+                    if (_subscribedMatrices.Contains(matrix) == false)
                         _subscribedMatrices.AddLast(matrix);
                 }
                 else
@@ -115,7 +115,7 @@ namespace EmberPlusProviderClassLib
         {
             var root = e.Root as GlowContainer;
 
-            if(root != null)
+            if (root != null)
             {
                 var buffer = new StringBuilder();
                 var settings = new XmlWriterSettings
@@ -171,7 +171,7 @@ namespace EmberPlusProviderClassLib
                     host = Host;
                 }
 
-                if(socket != null)
+                if (socket != null)
                 {
                     try
                     {
@@ -203,7 +203,7 @@ namespace EmberPlusProviderClassLib
                 Host = null;
             }
 
-            if(socket != null)
+            if (socket != null)
             {
                 try
                 {
