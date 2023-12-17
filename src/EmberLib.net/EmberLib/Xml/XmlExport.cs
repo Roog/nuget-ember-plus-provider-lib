@@ -49,7 +49,9 @@ namespace EmberLib.Xml
          if(node.Count > 0)
          {
             foreach(var child in node)
+            {
                child.Accept(this, state);
+            }
          }
 
          writer.WriteEndElement();
@@ -124,7 +126,9 @@ namespace EmberLib.Xml
             buffer.Append(value[index].ToString("X2"));
 
             if((index & 0x1F) == 0x1F)
+            {
                buffer.AppendLine();
+            }
          }
 
          return WriteLeaf(node, state, buffer.ToString());
@@ -138,7 +142,9 @@ namespace EmberLib.Xml
          for(int index = 0; index < value.Length; index++)
          {
             if(index >= 1)
+            {
                buffer.Append(".");
+            }
 
             buffer.Append(value[index].ToString());
          }
@@ -154,7 +160,9 @@ namespace EmberLib.Xml
          for(int index = 0; index < value.Length; index++)
          {
             if(index >= 1)
+            {
                buffer.Append(".");
+            }
 
             buffer.Append(value[index].ToString());
          }

@@ -5,14 +5,13 @@
    Distributed under the Boost Software License, Version 1.0.
    (See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 */
-// XXX: Changes has been made, BerType.null, NullEmberLeaf added
+// XXX: Changes has been made, BerType.null, NullEmberLeaf added (no function chnages)
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using System.Diagnostics;
 using BerLib;
-
 
 namespace EmberLib
 {
@@ -144,7 +143,9 @@ namespace EmberLib
             root = FromReader(reader, application) as EmberContainer;
 
             if(root == null)
+            {
                throw new BerException(4, "Root node is not a container");
+            }
 
             var childReader = new EmberReader(reader);
 
@@ -203,8 +204,9 @@ namespace EmberLib
 
                default:
                   {
-                     if(application != null)
+                     if(application != null) {
                         node = application.CreateNodeFromReader(type, reader);
+                     }
 
                      if(node == null)
                      {
@@ -226,9 +228,13 @@ namespace EmberLib
 
                case BerType.Integer:
                   if(reader.Length > 4)
+                  {
                      node = new LongEmberLeaf(tag, reader.GetLong());
+                  }
                   else
+                  {
                      node = new IntegerEmberLeaf(tag, reader.GetInteger());
+                  }
                   break;
 
                case BerType.Real:
@@ -283,7 +289,9 @@ namespace EmberLib
             string message;
 
             if(ValidateAfterDecodeOverride(out message) == false)
+            {
                validation.RaiseValidationError(this, message);
+            }
          }
       }
 

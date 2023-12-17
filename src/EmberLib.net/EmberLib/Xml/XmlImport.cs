@@ -48,7 +48,9 @@ namespace EmberLib.Xml
       EmberNode Convert()
       {
          if(_reader.IsStartElement())
+         {
             return Convert_Recurse(null);
+         }
 
          return null;
       }
@@ -68,15 +70,21 @@ namespace EmberLib.Xml
             if(node is EmberContainer)
             {
                while(_reader.IsStartElement())
+               {
                   Convert_Recurse(node);
+               }
             }
 
             if(parent != null)
+            {
                parent.InsertChildNode(node);
+            }
          }
 
          if(isEmpty == false)
+         {
             _reader.ReadEndElement();
+         }
 
          return node;
       }
@@ -99,13 +107,15 @@ namespace EmberLib.Xml
                      node = new NullEmberLeaf(tag);
                      break;
                   }
+
                   case BerType.Boolean:
                   {
                      bool value;
 
                      if(bool.TryParse(_reader.ReadContentAsString(), out value))
+                     {
                         node = new BooleanEmberLeaf(tag, value);
-
+                     }
                      break;
                   }
 
@@ -116,9 +126,13 @@ namespace EmberLib.Xml
                      if(long.TryParse(_reader.ReadContentAsString(), out value))
                      {
                         if((ulong)value > int.MaxValue)
+                        {
                            node = new LongEmberLeaf(tag, value);
+                        }
                         else
+                        {
                            node = new IntegerEmberLeaf(tag, (int)value);
+                        }
                      }
 
                      break;
@@ -129,8 +143,9 @@ namespace EmberLib.Xml
                      double value;
 
                      if(double.TryParse(_reader.ReadContentAsString(), NumberStyles.Float, XmlExport.FormatProvider, out value))
+                     {
                         node = new RealEmberLeaf(tag, value);
-
+                     }
                      break;
                   }
 
@@ -172,7 +187,9 @@ namespace EmberLib.Xml
                   default:
                   {
                      if(_application != null)
+                     {
                         node = _application.CreateNodeFromXml(type, tag, _reader);
+                     }
 
                      if(node == null)
                      {
