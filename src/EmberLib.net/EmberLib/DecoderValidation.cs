@@ -5,11 +5,8 @@
    Distributed under the Boost Software License, Version 1.0.
    (See accompanying file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 */
-// XXX: Changes has been made, I Added license header, Also maybe should see if something is listening to these events.
+
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 
 namespace EmberLib
 {
@@ -46,8 +43,8 @@ namespace EmberLib
 
       protected virtual void OnValidationError(ValidationErrorArgs e)
       {
-          Debug.WriteLine($"Error: DecoderValidation / OnValidationError", e);
-          if (ValidationError != null)
+         Debug.WriteLine($"Error: DecoderValidation / OnValidationError", e);
+         if(ValidationError != null)
             ValidationError(this, e);
       }
       #endregion
