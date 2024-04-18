@@ -63,8 +63,6 @@ namespace EmberLib.Glow.Framing
          _applicationBytes = CreateApplicationBytes();
       }
 
-
-
       /// <summary>
       /// Overridden to return glow-specific application bytes:
       /// 0 - version lo8

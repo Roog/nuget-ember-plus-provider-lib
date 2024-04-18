@@ -32,8 +32,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using EmberLib.Framing;
 using EmberLib.Glow;
@@ -155,14 +153,28 @@ namespace EmberPlusProviderClassLib
                 ChangedTreeEvent?.Invoke(identifierPath, stringParameter.Value, stringParameter.Path);
             }
 
+            // Check if it is boolean parameter
             if (parameter is BooleanParameter boolParameter)
             {
                 ChangedTreeEvent?.Invoke(identifierPath, boolParameter.Value, boolParameter.Path);
             }
 
+            // Check if it is integer parameter
             if (parameter is IntegerParameter intParameter)
             {
                 ChangedTreeEvent?.Invoke(identifierPath, (int)intParameter.Value, intParameter.Path);
+            }
+
+            // Check if it is real parameter
+            if (parameter is RealParameter realParameter)
+            {
+                ChangedTreeEvent?.Invoke(identifierPath, (float)realParameter.Value, realParameter.Path);
+            }
+
+            // Check if it is enum parameter
+            if (parameter is EnumParameter enumParameter)
+            {
+                ChangedTreeEvent?.Invoke(identifierPath, (int)enumParameter.Value, enumParameter.Path);
             }
         }
 

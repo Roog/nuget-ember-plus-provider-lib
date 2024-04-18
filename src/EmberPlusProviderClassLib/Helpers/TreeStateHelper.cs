@@ -34,7 +34,7 @@ using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace LarkspurEmberWebProvider.Helpers
+namespace EmberPlusProviderClassLib.Helpers
 {
     public static class TreeStateHelper
     {
@@ -42,7 +42,7 @@ namespace LarkspurEmberWebProvider.Helpers
         {
             if (filePath == null)
             {
-                return default(T);
+                return default;
             }
 
             try
@@ -56,7 +56,7 @@ namespace LarkspurEmberWebProvider.Helpers
             catch (Exception ex)
             {
                 Debug.WriteLine($"Could not load state: ${ex.Message}");
-                return default(T);
+                return default;
             }
         }
 

@@ -99,6 +99,7 @@ namespace EmberLib.Xml
                      node = new NullEmberLeaf(tag);
                      break;
                   }
+
                   case BerType.Boolean:
                   {
                      bool value;
