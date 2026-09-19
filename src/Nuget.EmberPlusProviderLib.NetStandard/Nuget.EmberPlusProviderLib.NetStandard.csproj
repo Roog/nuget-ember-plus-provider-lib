@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
 
     <PackageId>EmberPlus.ProviderLib</PackageId>
     <Description>C# .NET Standard provider library for the EmBER+ protocol.</Description>
